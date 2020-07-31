@@ -8,3 +8,4 @@
 ^webpack\.config\.js$
 ^yarn\.lock$
 ^inst/test\.R$
+^inst/shinyDatetimePicker\.gif$

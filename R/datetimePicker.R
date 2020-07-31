@@ -57,13 +57,13 @@ datetimePickerInput <- function(
   )
 }
 
-#' <Add Title>
-#'
-#' <Add Description>
-#'
-#' @export
-updateDatetimePickerInput <- function(session, inputId, value, configuration = NULL) {
-  message <- list(value = value)
-  if (!is.null(configuration)) message$configuration <- configuration
-  session$sendInputMessage(inputId, message);
-}
+# #' <Add Title>
+# #'
+# #' <Add Description>
+# #'
+# #' @export
+# updateDatetimePickerInput <- function(session, inputId, value, configuration = NULL) {
+#   message <- list(value = value)
+#   if (!is.null(configuration)) message$configuration <- configuration
+#   session$sendInputMessage(inputId, message);
+# }

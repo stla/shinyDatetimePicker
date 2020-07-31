@@ -63,6 +63,17 @@ class Widget extends React.PureComponent {
     });
   }
 
+  componentDidMount() {
+    let state = this.state,
+      id = this.props.shinyId + ":shinyDatetimePicker.date";
+    setTimeout(function () {
+      Shiny.setInputValue(id, {
+        date: state.date,
+        time: state.time
+      });
+    }, 0);
+  }
+
   render() {
     const language = (this.props.language === 'ko') ? Language['ko'] : Language['en'];
 

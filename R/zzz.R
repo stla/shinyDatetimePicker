@@ -5,9 +5,9 @@
 
   shiny::registerInputHandler("shinyDatetimePicker.date", function(data, ...) {
     dt <- Sys.time()
-    year(dt) <- data[["date"]][["year"]]
-    month(dt) <- data[["date"]][["month"]]
     day(dt) <- data[["date"]][["date"]]
+    month(dt) <- data[["date"]][["month"]]
+    year(dt) <- data[["date"]][["year"]]
     hour(dt) <- data[["time"]][["hour"]]
     minute(dt) <- data[["time"]][["minute"]]
     second(dt) <-
