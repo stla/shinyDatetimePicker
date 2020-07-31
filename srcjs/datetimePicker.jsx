@@ -104,13 +104,13 @@ class Widget extends React.PureComponent {
             <Calendar
               language={this.props.language}
               defaultValue={this.state.date}
-              onChange={(time) => this.onValueChange(true, time)}
+              onChange={(date) => this.onValueChange(true, date)}
             /> :
             <TimePicker
               language={this.props.language}
               enableSecond={this.props.enableSecond}
               defaultValue={this.state.time}
-              onChange={(date) => this.onValueChange(false, date)}
+              onChange={(time) => this.onValueChange(false, time)}
             />}
         </div>
         {this.props.save ?
