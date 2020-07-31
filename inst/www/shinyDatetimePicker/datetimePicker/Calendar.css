@@ -28,6 +28,7 @@
     height: 32px;
     text-align: center;
     vertical-align: middle;
+    cursor: pointer;
 }
 .calendar-cell.selected {
     background-color: #27272f;

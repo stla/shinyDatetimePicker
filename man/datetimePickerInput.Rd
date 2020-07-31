@@ -2,10 +2,20 @@
 % Please edit documentation in R/datetimePicker.R
 \name{datetimePickerInput}
 \alias{datetimePickerInput}
-\title{<Add Title>}
+\title{Datetime picker}
 \usage{
-datetimePickerInput(inputId, value = NULL)
+datetimePickerInput(inputId, value = NULL, second = FALSE, save = FALSE)
+}
+\arguments{
+\item{inputId}{the input slot that will be used to access the value}
+
+\item{value}{initial value of the datetime picker; if \code{NULL}, the
+initial value is set to the system time}
+
+\item{second}{logical, whether to enable the second picker}
+
+\item{save}{logical, whether to enable the 'save' button}
 }
 \description{
-<Add Description>
+A datetime picker for a Shiny UI.
 }

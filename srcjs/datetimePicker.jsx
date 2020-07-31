@@ -46,8 +46,9 @@ class Widget extends React.PureComponent {
       this.setState({ time: time });
     }
     if (!this.props.save) {
+      let id = this.props.shinyId + ":shinyDatetimePicker.date";
       setTimeout(function () {
-        Shiny.setInputValue("xxx", {
+        Shiny.setInputValue(id, {
           date: date,
           time: time
         });
@@ -56,8 +57,7 @@ class Widget extends React.PureComponent {
   }
 
   onSave() {
-    this.props.setShinyValue(2);
-    Shiny.setInputValue("xxx", {
+    Shiny.setInputValue(this.props.shinyId + ":shinyDatetimePicker.date", {
       date: this.state.date,
       time: this.state.time
     });
@@ -76,8 +76,16 @@ class Widget extends React.PureComponent {
             textColor='inherit'
             classes={{ indicator: 'picker-tab-indicator' }}
           >
-            <Tab label={language.date} icon={<Today />} classes={{ selected: 'selected' }} />
-            <Tab label={language.time} icon={<AccessTime />} classes={{ selected: 'selected' }} />
+            <Tab 
+              label={language.date} 
+              icon={<Today />} 
+              classes={{ selected: 'selected' }} 
+            />
+            <Tab 
+              label={language.time} 
+              icon={<AccessTime />} 
+              classes={{ selected: 'selected' }} 
+            />
           </Tabs>
         </div>
         <div className='picker-form'>
@@ -89,7 +97,7 @@ class Widget extends React.PureComponent {
             /> :
             <TimePicker
               language={this.props.language}
-              enableSecond={(this.props.enableSecond !== undefined) ? this.props.enableSecond : false}
+              enableSecond={this.props.enableSecond}
               defaultValue={this.state.time}
               onChange={(date) => this.onValueChange(false, date)}
             />}
@@ -112,6 +120,7 @@ const Input = ({ configuration, value, setValue }) => {
     <Widget
       setShinyValue={setValue}
       value={value}
+      shinyId={configuration.shinyId}
       enableSecond={configuration.second}
       save={configuration.save}
     />

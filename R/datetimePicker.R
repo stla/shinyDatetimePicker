@@ -16,11 +16,16 @@ datetime2list <- function(dt, sec){
   )
 }
 
-#' <Add Title>
+#' Datetime picker
 #'
-#' <Add Description>
+#' A datetime picker for a Shiny UI.
 #'
-#' @importFrom shiny restoreInput
+#' @param inputId the input slot that will be used to access the value
+#' @param value initial value of the datetime picker; if \code{NULL}, the
+#'   initial value is set to the system time
+#' @param second logical, whether to enable the second picker
+#' @param save logical, whether to enable the 'save' button
+#'
 #' @importFrom reactR createReactShinyInput
 #' @importFrom htmltools htmlDependency tags
 #' @import lubridate
@@ -36,7 +41,7 @@ datetimePickerInput <- function(
   }
 
   reactR::createReactShinyInput(
-    inputId,
+    paste0(inputId, "-input"),
     "datetimePicker",
     htmltools::htmlDependency(
       name = "datetimePicker-input",
@@ -47,7 +52,7 @@ datetimePickerInput <- function(
       stylesheet = c("Calendar.css", "TimePicker.css", "Picker.css")
     ),
     datetime2list(value, second),
-    list(second = second, save = save),
+    list(shinyId = inputId, second = second, save = save),
     htmltools::tags$div
   )
 }
